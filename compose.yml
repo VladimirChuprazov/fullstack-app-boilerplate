@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  database:
+    image: mariadb:10.3
+    environment:
+      MARIADB_ROOT_PASSWORD: pwd
+      MARIADB_USER: user
+      MARIADB_PASSWORD: pwd
+    volumes:
+      - ./.run/data/database:/var/lib/mysql
+      - ./.run/logs/database:/var/lib/mysql
+
+  database-admin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 7090:80
+    environment:
+      PMA_HOST: database
+    depends_on:
+      - database
