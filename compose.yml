@@ -7,6 +7,8 @@ services:
       MARIADB_ROOT_PASSWORD: pwd
       MARIADB_USER: user
       MARIADB_PASSWORD: pwd
+    ports:
+      - 3306:3306
     volumes:
       - ./.run/data/database:/var/lib/mysql
       - ./.run/logs/database:/var/lib/mysql
