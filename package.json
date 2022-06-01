@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "prepare": "husky install"
   },
   "private": true,
   "devDependencies": {
@@ -48,7 +49,9 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
+    "husky": "^8.0.1",
     "jest": "27.5.1",
+    "lint-staged": "^13.0.0",
     "nx": "14.1.9",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.1.0",
@@ -77,5 +80,12 @@
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.2.45"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.{css,scss,md,json}": "prettier --write"
   }
 }
