@@ -55,6 +55,9 @@
     "nx": "14.1.9",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.1.0",
+    "stylelint": "^14.8.5",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^4.0.0",
     "ts-jest": "27.1.4",
     "ts-node": "9.1.1",
     "typescript": "~4.6.2",
@@ -79,9 +82,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint"
+      "eslint",
+      "prettier --write"
     ],
-    "*.{css,scss,md,json}": "prettier --write"
+    "*.{css,scss,sass}": [
+      "stylelint",
+      "prettier --write"
+    ],
+    "*.{md,json,yml}": "prettier --write"
   }
 }
